@@ -51,10 +51,12 @@ plugins=(
   cp
   dnf
   git
+  gitignore
   httpie
   rsync
   tmux
   z
+  swiftpm
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +99,5 @@ alias art="php artisan"
 alias tinker="php artisan tinker"
 
 alias lg="lazygit"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
