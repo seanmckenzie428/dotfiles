@@ -90,6 +90,10 @@ export FZF_DEFAULT_OPTS='
 --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef,gutter:-1,border:#1f2335
 '
 
+# iTerm2 Shell Integration with tmux
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+
+
 #--------------------------------------------------
 # Aliases
 #--------------------------------------------------
