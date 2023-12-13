@@ -42,10 +42,10 @@ config.line_height = 1.1
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 config.window_padding = {
-	left = "2cell",
-	right = "2cell",
-	top = "0.5cell",
-	bottom = "0.5cell",
+	left = "0cell",
+	right = "0cell",
+	top = "0cell",
+	bottom = "0cell",
 }
 config.use_resize_increments = true
 
