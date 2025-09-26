@@ -2,3 +2,5 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+mv $HOME/.config/fish $HOME/.config/fish-backup
+ln -s $DOTFILES/fish $HOME/.config/fish
