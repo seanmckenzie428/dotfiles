@@ -17,6 +17,8 @@ if status is-interactive
     abbr -a fresh "php artisan migrate:fresh --seed"
     abbr -a listen "php artisan queue:listen"
     abbr -a work "php artisan queue:work"
+    abbr -a stan "./vendor/bin/phpstan"
+    abbr -a tinker "php artisan tinker"
 end
 
 # mise-en-place
