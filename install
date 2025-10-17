@@ -1,6 +1,22 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env fish
 
-DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+# Set DOTFILES to the absolute path of this script
+set DOTFILES (cd (dirname (status --current-filename)) && pwd)
 
-mv $HOME/.config/fish $HOME/.config/fish-backup
-ln -s $DOTFILES/fish $HOME/.config/fish
+# ==================================================
+# Update this with all programs
+# ==================================================
+set programs fish ghostty
+
+# Function to link the directory from dotfiles to into a subdirectory in .config
+function linkConfig
+    if test -d "$HOME/.config/$argv"
+        mv "$HOME/.config/$argv" "$HOME/.config/$argv-backup"
+    end
+    ln -s "$DOTFILES/$argv" "$HOME/.config/$argv"
+end
+
+# Run linkConfig for all programs
+for x in $programs
+    linkConfig $x
+end

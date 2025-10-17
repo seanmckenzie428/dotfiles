@@ -1,0 +1,9 @@
+# This is the configuration file for Ghostty.
+
+# ==================================================
+# Settings
+# ==================================================
+command                           = shell:/opt/homebrew/bin/fish
+shell-integration-features        = ssh-env
+quit-after-last-window-closed     = true
+window-inherit-working-directory  = false
