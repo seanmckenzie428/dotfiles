@@ -9,6 +9,7 @@ if status is-interactive
     # laravel
     abbr -a art "php artisan"
     abbr -a pint "./vendor/bin/pint"
+    abbr -a pintd "./vendor/bin/pint --dirty"
     abbr -a pest "./vendor/bin/pest"
     abbr -a pestl "./vendor/bin/pest --parallel"
     abbr -a test "php artisan test"
