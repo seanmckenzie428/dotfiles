@@ -5,5 +5,10 @@
 # ==================================================
 command                           = shell:/opt/homebrew/bin/fish
 shell-integration-features        = ssh-env
-quit-after-last-window-closed     = true
 window-inherit-working-directory  = false
+
+# ==================================================
+# Keybindings
+# ==================================================
+keybind = global:cmd+backquote=toggle_quick_terminal
+
