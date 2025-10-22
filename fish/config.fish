@@ -20,6 +20,11 @@ if status is-interactive
     abbr -a work "php artisan queue:work"
     abbr -a stan "./vendor/bin/phpstan"
     abbr -a tinker "php artisan tinker"
+    abbr -a stinker "./vendor/bin/sail artisan tinker"
+    abbr -a sail "./vendor/bin/sail"
+    abbr -a samfs "./vendor/bin/sail artisan migrate:fresh --seed"
+    abbr -a vite "./vendor/bin/sail npm run dev"
+    abbr -a pa "./vendor/bin/sail artisan"
 end
 
 # mise-en-place
@@ -59,3 +64,6 @@ end
 
 # Set up fzf key bindings
 fzf --fish | source
+
+# set neovim as the default editor
+set -gx EDITOR nvim
