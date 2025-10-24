@@ -6,7 +6,7 @@ set DOTFILES (cd (dirname (status --current-filename)) && pwd)
 # ==================================================
 # Update this with all programs
 # ==================================================
-set programs fish ghostty
+set programs fish ghostty nvim
 
 # Function to link the directory from dotfiles to into a subdirectory in .config
 function linkConfig
