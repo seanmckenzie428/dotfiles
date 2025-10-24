@@ -4,8 +4,65 @@
 set DOTFILES (cd (dirname (status --current-filename)) && pwd)
 
 # ==================================================
-# Update this with all programs
+# Install programs
 # ==================================================
+
+# ==========
+# Terminal
+# ==========
+brew install neovim
+brew install lazygit
+
+# Mac App Store Automation
+brew install mas
+
+# Github cli
+brew install gh
+
+# Yazi
+brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+
+# ==========
+# GUI
+# ==========
+brew install --cask arc
+brew install --cask raycast
+brew install --cask ghostty
+brew install --cask herd
+brew install --cask dbngin
+brew install --cask alt-tab
+brew install --cask phpstorm
+brew install --cask mac-mouse-fix
+brew install --cask monitorcontrol
+brew install --cask transmit
+
+# Bitwarden
+mas install 1352778147
+
+# Craft
+mas install 1487937127
+
+# Amphetamine
+mas install 937984704
+
+# ==================================================
+# Setup Terminal with Fish
+# ==================================================
+
+# Fisher package manager for fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+# Tide prompt for fish
+fisher install IlanCosman/tide@v6
+
+# Install Sponge (remove typos from command history)
+fisher install meaningful-ooo/sponge
+
+# ==================================================
+# Copy configs for programs
+# ==================================================
+
+# update this with all programs that have configs to copy
 set programs fish ghostty nvim
 
 # Function to link the directory from dotfiles to into a subdirectory in .config
@@ -21,16 +78,5 @@ for x in $programs
     linkConfig $x
 end
 
-# ==================================================
-# Setup Terminal with Fish
-# ==================================================
-
-# Install Fisher package manager for fish
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-
-# Install and configure Tide prompt for fish
-fisher install IlanCosman/tide@v6
+# Configure terminal prompt
 tide configure --auto --style=Lean --prompt_colors='True color' --show_time='12-hour format' --lean_prompt_height='Two lines' --prompt_connection=Dotted --prompt_connection_andor_frame_color=Light --prompt_spacing=Sparse --icons='Few icons' --transient=No
-
-# Install Sponge (remove typos from command history)
-fisher install meaningful-ooo/sponge
