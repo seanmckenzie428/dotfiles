@@ -22,6 +22,9 @@ brew install gh
 # Yazi
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 
+# mise-en-place (nvm alternative)
+brew install mise
+
 # ==========
 # GUI
 # ==========

@@ -27,10 +27,10 @@ if status is-interactive
     abbr -a pa "./vendor/bin/sail artisan"
 end
 
+set fish_greeting ""
+
 # mise-en-place
-/Users/seanm/.local/bin/mise activate fish | source
-/Users/seanm/.local/bin/mise activate fish | source
-~/.local/bin/mise activate fish | source
+mise activate fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
