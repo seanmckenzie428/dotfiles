@@ -25,16 +25,25 @@ brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagema
 # ==========
 # GUI
 # ==========
+brew install --cask adguard
+brew install --cask alt-tab
 brew install --cask arc
-brew install --cask raycast
+brew install --cask dbngin
 brew install --cask ghostty
 brew install --cask herd
-brew install --cask dbngin
-brew install --cask alt-tab
-brew install --cask phpstorm
 brew install --cask mac-mouse-fix
 brew install --cask monitorcontrol
+brew install --cask phpstorm
+brew install --cask shottr
+brew install --cask raycast
+brew install --cask rectangle
+brew install --cask tableplus
 brew install --cask transmit
+brew install --cask zed
+brew install --cask zoom
+
+# Amphetamine
+mas install 937984704
 
 # Bitwarden
 mas install 1352778147
@@ -42,8 +51,11 @@ mas install 1352778147
 # Craft
 mas install 1487937127
 
-# Amphetamine
-mas install 937984704
+# Dropover
+mas install 1355679052
+
+# Slack
+mas install 803453959
 
 # ==================================================
 # Setup Terminal with Fish
