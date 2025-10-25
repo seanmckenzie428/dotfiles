@@ -29,6 +29,7 @@ brew install --cask adguard
 brew install --cask alt-tab
 brew install --cask arc
 brew install --cask dbngin
+brew install --cask docker-desktop
 brew install --cask ghostty
 brew install --cask herd
 brew install --cask mac-mouse-fix
