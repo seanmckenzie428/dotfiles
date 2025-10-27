@@ -25,6 +25,9 @@ if status is-interactive
     abbr -a samfs "./vendor/bin/sail artisan migrate:fresh --seed"
     abbr -a vite "./vendor/bin/sail npm run dev"
     abbr -a sa "./vendor/bin/sail artisan"
+    abbr -a up "./vendor/bin/sail up"
+    abbr -a upd "./vendor/bin/sail up -d"
+    abbr -a down "./vendor/bin/sail down"
 end
 
 set fish_greeting ""
