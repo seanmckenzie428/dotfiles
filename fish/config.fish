@@ -12,8 +12,8 @@ if status is-interactive
     abbr -a pintd "./vendor/bin/pint --dirty"
     abbr -a pest "./vendor/bin/pest"
     abbr -a pestl "./vendor/bin/pest --parallel"
-    abbr -a test "php artisan test"
-    abbr -a testl "php artisan test --parallel"
+    abbr -a test "./vendor/bin/sail test"
+    abbr -a testl "./vendor/bin/sail test --parallel"
     abbr -a migrate "php artisan migrate"
     abbr -a fresh "php artisan migrate:fresh --seed"
     abbr -a listen "php artisan queue:listen"
@@ -24,7 +24,7 @@ if status is-interactive
     abbr -a sail "./vendor/bin/sail"
     abbr -a samfs "./vendor/bin/sail artisan migrate:fresh --seed"
     abbr -a vite "./vendor/bin/sail npm run dev"
-    abbr -a pa "./vendor/bin/sail artisan"
+    abbr -a sa "./vendor/bin/sail artisan"
 end
 
 set fish_greeting ""
