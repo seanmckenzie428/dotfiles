@@ -6,6 +6,7 @@
 command                           = shell:/opt/homebrew/bin/fish
 shell-integration-features        = ssh-env
 window-inherit-working-directory  = false
+quit-after-last-window-closed     = true
 
 # ==================================================
 # Keybindings
