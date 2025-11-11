@@ -41,6 +41,7 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # composer
 set --export PATH /Users/seanm/.composer/vendor/bin $PATH
+set --export PATH '/Users/seanm/Library/Application Support/Herd/bin' $PATH
 
 # mariadb
 set --export PATH /Users/Shared/DBngin/mariadb/10.11.6_arm/bin $PATH
