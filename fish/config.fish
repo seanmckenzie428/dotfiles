@@ -28,12 +28,10 @@ if status is-interactive
     abbr -a up "./vendor/bin/sail up"
     abbr -a upd "./vendor/bin/sail up -d"
     abbr -a down "./vendor/bin/sail down"
+    abbr -a dc "docker compose"
 end
 
 set fish_greeting ""
-
-# mise-en-place
-mise activate fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

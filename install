@@ -1,5 +1,4 @@
 #!/usr/bin/env fish
-
 # Set DOTFILES to the absolute path of this script
 set DOTFILES (cd (dirname (status --current-filename)) && pwd)
 
@@ -22,8 +21,11 @@ brew install gh
 # Yazi
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 
-# mise-en-place (nvm alternative)
-brew install mise
+# NVM
+fisher install jorgebucaran/nvm.fish
+
+# Bun
+brew install oven-sh/bun/bun
 
 # ==========
 # GUI
