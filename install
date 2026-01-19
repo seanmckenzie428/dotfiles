@@ -35,7 +35,6 @@ brew install --cask alt-tab
 brew install --cask arc
 brew install --cask dbngin
 brew install --cask docker-desktop
-brew install --cask ghostty
 brew install --cask herd
 brew install --cask mac-mouse-fix
 brew install --cask monitorcontrol
@@ -45,6 +44,7 @@ brew install --cask raycast
 brew install --cask rectangle
 brew install --cask tableplus
 brew install --cask transmit
+brew install --cask warp
 brew install --cask zed
 brew install --cask zoom
 

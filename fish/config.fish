@@ -12,8 +12,8 @@ if status is-interactive
     abbr -a pintd "./vendor/bin/pint --dirty"
     abbr -a pest "./vendor/bin/pest"
     abbr -a pestl "./vendor/bin/pest --parallel"
-    abbr -a test "./vendor/bin/sail test"
-    abbr -a testl "./vendor/bin/sail test --parallel"
+    abbr -a test "php artisan test"
+    abbr -a testl "php artisan test --parallel"
     abbr -a migrate "php artisan migrate"
     abbr -a fresh "php artisan migrate:fresh --seed"
     abbr -a listen "php artisan queue:listen"
@@ -29,6 +29,10 @@ if status is-interactive
     abbr -a upd "./vendor/bin/sail up -d"
     abbr -a down "./vendor/bin/sail down"
     abbr -a dc "docker compose"
+    abbr -a spint "./vendor/bin/sail pint"
+    abbr -a spest "./vendor/bin/sail pest"
+    abbr -a stest "./vendor/bin/sail test"
+    abbr -a stestl "./vendor/bin/sail test --parallel"
 end
 
 set fish_greeting ""
