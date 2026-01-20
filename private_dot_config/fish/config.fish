@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    abbr -a cz chezmoi
     abbr -a rm trash
     abbr -a vim nvim
     abbr -a lg lazygit
