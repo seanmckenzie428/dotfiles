@@ -36,3 +36,6 @@ packages:
       - 'warp'
       - 'zed'
       - 'zoom'
+apps:
+  darwin:
+    - 937984704 # Amphetamine
