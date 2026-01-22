@@ -74,3 +74,5 @@ fzf --fish | source
 
 # set neovim as the default editor
 set -gx EDITOR nvim
+
+zoxide init fish | source
