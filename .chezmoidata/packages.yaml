@@ -3,6 +3,7 @@ packages:
     brews:
       - 'fd'
       - 'ffmpeg'
+      - 'fish'
       - 'font-symbols-only-nerd-font'
       - 'fzf'
       - 'gh'
@@ -22,6 +23,7 @@ packages:
       - 'adguard'
       - 'alt-tab'
       - 'arc'
+      - 'calibre'
       - 'dbngin'
       - 'docker-desktop'
       - 'herd'
@@ -34,6 +36,7 @@ packages:
       - 'tableplus'
       - 'transmit'
       - 'warp'
+      - 'yaak'
       - 'zed'
       - 'zoom'
 apps:
