@@ -36,6 +36,9 @@ packages:
       - 'warp'
       - 'zed'
       - 'zoom'
-apps:
-  darwin:
-    - 937984704 # Amphetamine
+    apps:
+      - 'Amphetamine' # 937984704
+      - 'Bitwarden' # 1352778147
+      - 'Craft' # 1487937127
+      - 'Dropover' # 1355679052
+      - 'Slack' # 803453959
