@@ -78,3 +78,4 @@ set -gx EDITOR nvim
 
 # better cd alternative
 zoxide init fish | source
+fish_add_path $HOME/.local/bin
