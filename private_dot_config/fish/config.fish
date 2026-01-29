@@ -24,6 +24,7 @@ if status is-interactive
     abbr -a tinker "php artisan tinker"
     abbr -a stinker "./vendor/bin/sail artisan tinker"
     abbr -a sail "./vendor/bin/sail"
+    abbr -a sc "./vendor/bin/sail composer"
     abbr -a samfs "./vendor/bin/sail artisan migrate:fresh --seed"
     abbr -a vite "./vendor/bin/sail npm run dev"
     abbr -a sa "./vendor/bin/sail artisan"
