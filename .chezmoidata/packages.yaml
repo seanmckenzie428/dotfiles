@@ -2,10 +2,8 @@ packages:
   darwin:
     brews:
       - "angband"
-      - "fd"
       - "ffmpeg"
       - "fish"
-      - "font-symbols-only-nerd-font"
       - "fzf"
       - "gh"
       - "imagemagick"
