@@ -31,6 +31,7 @@ packages:
       - "rectangle"
       - "shottr"
       - "tableplus"
+      - "tailscale-app"
       - "tinkerwell"
       - "transmit"
       - "warp"
