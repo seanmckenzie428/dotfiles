@@ -6,6 +6,7 @@ packages:
       - "fish"
       - "fzf"
       - "gh"
+      - "go"
       - "imagemagick"
       - "lazygit"
       - "mas"
