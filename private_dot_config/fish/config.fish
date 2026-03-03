@@ -7,6 +7,7 @@ if status is-interactive
     abbr -a vim nvim
     abbr -a lg lazygit
     abbr -a st speedtest
+    abbr -a oc opencode
 
     # laravel
     abbr -a art "php artisan"
