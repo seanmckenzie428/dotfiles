@@ -14,6 +14,7 @@ packages:
       - "opencode"
       - "oven-sh/bun/bun"
       - "ripgrep"
+      - "tailscale"
       - "yazi"
       - "zoxide"
     casks:
@@ -25,6 +26,7 @@ packages:
       - "dbngin"
       - "docker-desktop"
       - "herd"
+      - "iterm2"
       - "mac-mouse-fix"
       - "monitorcontrol"
       - "phpstorm"
@@ -32,14 +34,38 @@ packages:
       - "rectangle"
       - "shottr"
       - "tableplus"
-      - "tailscale-app"
       - "tinkerwell"
       - "transmit"
-      - "warp"
       - "wispr-flow"
       - "yaak"
       - "zed"
       - "zoom"
+
+  arch:
+    pacman:
+      - "base-devel"
+      - "codex"
+      - "ffmpeg"
+      - "fish"
+      - "fzf"
+      - "git"
+      - "github-cli"
+      - "go"
+      - "imagemagick"
+      - "lazygit"
+      - "neovim"
+      - "ripgrep"
+      - "tailscale"
+      - "yazi"
+      - "zoxide"
+      - "zsh"
+      - "zsh-autosuggestions"
+      - "zsh-syntax-highlighting"
+    aur:
+      - "bun-bin"
+      - "opencode-bin"
+      - "zsh-theme-powerlevel10k"
+
 apps:
   darwin:
     - 937984704 # Amphetamine
