@@ -1,11 +1,31 @@
+# ~/.zshrc
+
 # Enable Powerlevel10k instant prompt. Keep near the top.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# ---------- Helpers ----------
+
+source_if_exists() {
+  local file
+  for file in "$@"; do
+    if [[ -r "$file" ]]; then
+      source "$file"
+      return 0
+    fi
+  done
+  return 1
+}
+
 # ---------- Prompt ----------
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source_if_exists \
+  "${HOMEBREW_PREFIX:-/opt/homebrew}/share/powerlevel10k/powerlevel10k.zsh-theme" \
+  "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" \
+  "/usr/share/powerlevel10k/powerlevel10k.zsh-theme" \
+  "/usr/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme"
+
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # ---------- Fish-style abbreviations ----------
 
@@ -17,9 +37,9 @@ abbr() {
 
 _expand_abbrev() {
   local word
-  word=${LBUFFER##* }
+  word=${LBUFFER##*[^[:alnum:]_./:-]}
 
-  if [[ -n ${ABBR[$word]} ]]; then
+  if [[ -n "$word" && -n ${ABBR[$word]} ]]; then
     LBUFFER="${LBUFFER%$word}${ABBR[$word]}"
   fi
 }
@@ -51,12 +71,12 @@ bindkey "^I" _expand_abbrev_tab
 
 abbr wts "wt switch"
 abbr lsa "ls -a"
-abbr cz chezmoi
-abbr rm trash
-abbr vim nvim
-abbr lg lazygit
-abbr st speedtest
-abbr oc opencode
+abbr cz "chezmoi"
+abbr rm "trash"
+abbr vim "nvim"
+abbr lg "lazygit"
+abbr st "speedtest"
+abbr oc "opencode"
 
 # Laravel
 abbr art "php artisan"
@@ -88,11 +108,16 @@ abbr spest "./vendor/bin/sail pest"
 abbr stest "./vendor/bin/sail test"
 abbr stestl "./vendor/bin/sail test --parallel"
 
+# ---------- Aliases ----------
+# Keep aliases for things that should work in scripts/functions too.
+alias l='ls'
+alias ll='ls -lah'
+
 # ---------- Functions ----------
 
 y() {
   local tmp cwd
-  tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+  tmp="$(mktemp -t yazi-cwd.XXXXXX 2>/dev/null || mktemp)"
   yazi "$@" --cwd-file="$tmp"
 
   if [[ -f "$tmp" ]]; then
@@ -111,6 +136,7 @@ compinit
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # ---------- History ----------
 
@@ -125,19 +151,18 @@ setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_REDUCE_BLANKS
 
-# Up/down arrow history search
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # ---------- Plugins ----------
 
-if [[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+source_if_exists \
+  "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-if [[ -r /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+source_if_exists \
+  "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+  "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
@@ -147,7 +172,6 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
-# WorkTrunk
 if command -v wt >/dev/null 2>&1; then
   eval "$(command wt config shell init zsh)"
 fi
