@@ -1,127 +1,153 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Enable Powerlevel10k instant prompt. Keep near the top.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # ---------- Prompt ----------
-# If using powerlevel10k:
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ---------- General ----------
-export EDITOR="nvim"
+# ---------- Fish-style abbreviations ----------
 
-# No greeting equivalent needed in zsh
+typeset -A ABBR
 
-# ---------- PATH ----------
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+abbr() {
+  ABBR[$1]="$2"
+}
 
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="$HOME/Library/Application Support/Herd/bin:$PATH"
+_expand_abbrev() {
+  local word
+  word=${LBUFFER##* }
 
-export PATH="/Users/Shared/DBngin/mariadb/10.11.6_arm/bin:$PATH"
-export PATH="/Users/Shared/DBngin/postgresql/17.0/bin:$PATH"
-export PATH="/Users/Shared/DBngin/redis/7.0.0/bin:$PATH"
+  if [[ -n ${ABBR[$word]} ]]; then
+    LBUFFER="${LBUFFER%$word}${ABBR[$word]}"
+  fi
+}
 
-export PATH="$HOME/.local/bin:$PATH"
+_expand_abbrev_space() {
+  _expand_abbrev
+  zle self-insert
+}
 
-# ---------- Herd PHP ----------
-export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
-export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
-export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
+_expand_abbrev_accept() {
+  _expand_abbrev
+  zle accept-line
+}
 
-# ---------- Aliases ----------
-alias wts='wt switch'
-alias lsa='ls -a'
-alias cz='chezmoi'
-alias rm='trash'
-alias vim='nvim'
-alias lg='lazygit'
-alias st='speedtest'
-alias oc='opencode'
+_expand_abbrev_tab() {
+  _expand_abbrev
+  zle expand-or-complete
+}
+
+zle -N _expand_abbrev_space
+zle -N _expand_abbrev_accept
+zle -N _expand_abbrev_tab
+
+bindkey " " _expand_abbrev_space
+bindkey "^M" _expand_abbrev_accept
+bindkey "^I" _expand_abbrev_tab
+
+# ---------- Abbreviations ----------
+
+abbr wts "wt switch"
+abbr lsa "ls -a"
+abbr cz chezmoi
+abbr rm trash
+abbr vim nvim
+abbr lg lazygit
+abbr st speedtest
+abbr oc opencode
 
 # Laravel
-alias art='php artisan'
-alias pint='./vendor/bin/pint'
-alias pintd='./vendor/bin/pint --dirty'
-alias pest='./vendor/bin/pest'
-alias pestl='./vendor/bin/pest --parallel'
-alias test='php artisan test'
-alias testl='php artisan test --parallel'
-alias migrate='php artisan migrate'
-alias fresh='php artisan migrate:fresh --seed'
-alias listen='php artisan queue:listen'
-alias work='php artisan queue:work'
-alias stan='./vendor/bin/phpstan'
-alias tinker='php artisan tinker'
-alias stinker='./vendor/bin/sail artisan tinker'
-alias sail='./vendor/bin/sail'
-alias sc='./vendor/bin/sail composer'
-alias samfs='./vendor/bin/sail artisan migrate:fresh --seed'
-alias vite='./vendor/bin/sail npm run dev'
-alias sa='./vendor/bin/sail artisan'
-alias up='docker compose up'
-alias upd='docker compose up -d'
-alias down='docker compose down'
-alias downv='docker compose down -v'
-alias dc='docker compose'
-alias spint='./vendor/bin/sail pint'
-alias spest='./vendor/bin/sail pest'
-alias stest='./vendor/bin/sail test'
-alias stestl='./vendor/bin/sail test --parallel'
+abbr art "php artisan"
+abbr pint "./vendor/bin/pint"
+abbr pintd "./vendor/bin/pint --dirty"
+abbr pest "./vendor/bin/pest"
+abbr pestl "./vendor/bin/pest --parallel"
+abbr test "php artisan test"
+abbr testl "php artisan test --parallel"
+abbr migrate "php artisan migrate"
+abbr fresh "php artisan migrate:fresh --seed"
+abbr listen "php artisan queue:listen"
+abbr work "php artisan queue:work"
+abbr stan "./vendor/bin/phpstan"
+abbr tinker "php artisan tinker"
+abbr stinker "./vendor/bin/sail artisan tinker"
+abbr sail "./vendor/bin/sail"
+abbr sc "./vendor/bin/sail composer"
+abbr samfs "./vendor/bin/sail artisan migrate:fresh --seed"
+abbr vite "./vendor/bin/sail npm run dev"
+abbr sa "./vendor/bin/sail artisan"
+abbr up "docker compose up"
+abbr upd "docker compose up -d"
+abbr down "docker compose down"
+abbr downv "docker compose down -v"
+abbr dc "docker compose"
+abbr spint "./vendor/bin/sail pint"
+abbr spest "./vendor/bin/sail pest"
+abbr stest "./vendor/bin/sail test"
+abbr stestl "./vendor/bin/sail test --parallel"
 
 # ---------- Functions ----------
+
 y() {
   local tmp cwd
   tmp="$(mktemp -t yazi-cwd.XXXXXX)"
   yazi "$@" --cwd-file="$tmp"
+
   if [[ -f "$tmp" ]]; then
     cwd="$(<"$tmp")"
     if [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
       cd -- "$cwd"
     fi
-    rm -f -- "$tmp"
+    command rm -f -- "$tmp"
   fi
 }
 
 # ---------- Completion ----------
+
 autoload -Uz compinit
 compinit
 
-# Better completion behavior
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # ---------- History ----------
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
+
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
+setopt HIST_REDUCE_BLANKS
 
 # Up/down arrow history search
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # ---------- Plugins ----------
-# Homebrew locations on Apple Silicon:
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# fzf
-source <(fzf --zsh)
+if [[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
-# zoxide
-eval "$(zoxide init zsh)"
+if [[ -r /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
-# Herd injected PHP binary.
-export PATH="/Users/seanm/Library/Application Support/Herd/bin/":$PATH
-alias samfs="./vendor/bin/sail artisan migrate:fresh --seed"
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
 
 # WorkTrunk
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+if command -v wt >/dev/null 2>&1; then
+  eval "$(command wt config shell init zsh)"
+fi
