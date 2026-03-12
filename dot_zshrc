@@ -112,10 +112,8 @@ abbr stestl "./vendor/bin/sail test --parallel"
 # ---------- Aliases ----------
 # Keep aliases for things that should work in scripts/functions too.
 alias l='eza'
-alias ll='eza -lah'
 alias ls='eza'
-alias lsa='eza -a'
-alias lsl='eza -l'
+alias ll='eza -lah'
 
 # ---------- Navigation ----------
 
