@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
       - "angband"
+      - "eza"
       - "ffmpeg"
       - "fish"
       - "fzf"
@@ -44,6 +45,7 @@ packages:
   arch:
     pacman:
       - "base-devel"
+      - "eza"
       - "ffmpeg"
       - "fish"
       - "fzf"
