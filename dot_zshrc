@@ -71,9 +71,6 @@ bindkey "^I" _expand_abbrev_tab
 
 # ---------- Abbreviations ----------
 
-abbr ls "eza"
-abbr lsa "eza -a"
-abbr lsl "eza -l"
 abbr wts "wt switch"
 abbr cz "chezmoi"
 abbr rm "trash"
@@ -114,8 +111,11 @@ abbr stestl "./vendor/bin/sail test --parallel"
 
 # ---------- Aliases ----------
 # Keep aliases for things that should work in scripts/functions too.
-alias l='ls'
-alias ll='ls -lah'
+alias l='eza'
+alias ll='eza -lah'
+alias ls='eza'
+alias lsa='eza -a'
+alias lsl='eza -l'
 
 # ---------- Navigation ----------
 
