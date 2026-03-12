@@ -71,8 +71,10 @@ bindkey "^I" _expand_abbrev_tab
 
 # ---------- Abbreviations ----------
 
+abbr ls "eza"
+abbr lsa "eza -a"
+abbr lsl "eza -l"
 abbr wts "wt switch"
-abbr lsa "ls -a"
 abbr cz "chezmoi"
 abbr rm "trash"
 abbr vim "nvim"
@@ -124,18 +126,12 @@ alias ...="cd ../.."
 
 # ---------- Functions ----------
 
-y() {
-  local tmp cwd
-  tmp="$(mktemp -t yazi-cwd.XXXXXX 2>/dev/null || mktemp)"
-  yazi "$@" --cwd-file="$tmp"
-
-  if [[ -f "$tmp" ]]; then
-    cwd="$(<"$tmp")"
-    if [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
-      cd -- "$cwd"
-    fi
-    command rm -f -- "$tmp"
-  fi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 # ---------- Completion ----------
@@ -185,6 +181,9 @@ if command -v wt >/dev/null 2>&1; then
   eval "$(command wt config shell init zsh)"
 fi
 
+# Default Text Editor
+export EDITOR="zed --wait"
+export VISUAL="zed --wait"
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/seanm/Library/Application Support/Herd/config/php/84/"
