@@ -7,6 +7,8 @@ fi
 
 # ---------- Helpers ----------
 
+setopt AUTO_CD
+
 source_if_exists() {
   local file
   for file in "$@"; do
@@ -113,6 +115,13 @@ abbr stestl "./vendor/bin/sail test --parallel"
 alias l='ls'
 alias ll='ls -lah'
 
+# ---------- Navigation ----------
+
+setopt AUTO_CD
+
+alias ..="cd .."
+alias ...="cd ../.."
+
 # ---------- Functions ----------
 
 y() {
@@ -175,3 +184,15 @@ fi
 if command -v wt >/dev/null 2>&1; then
   eval "$(command wt config shell init zsh)"
 fi
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/seanm/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/seanm/Library/Application Support/Herd/config/php/85/"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
