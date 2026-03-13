@@ -185,7 +185,7 @@ if command -v wt >/dev/null 2>&1; then
 fi
 
 # Default Text Editor
-export EDITOR="zed --wait"
+export EDITOR="nvim"
 export VISUAL="zed --wait"
 
 # Herd injected PHP 8.4 configuration.
