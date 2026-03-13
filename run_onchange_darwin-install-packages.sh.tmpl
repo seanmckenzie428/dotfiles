@@ -14,4 +14,35 @@ EOF
 mas install {{ . | quote }}
 {{ end -}}
 
+{{- if gt (len .packages.darwin.bun) 0 }}
+# Install bun packages globally, installing bun if necessary
+if command -v bun >/dev/null 2>&1; then
+  bun add --global $(printf "%s " {{- range .packages.darwin.bun }}"{{ . }}" {{- end }})
+else
+  echo "bun not found; attempting to install bun..." >&2
+  curl -fsSL https://bun.com/install | bash
+
+  # Make bun available in this script's environment (installer writes to $HOME/.bun)
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+
+  if command -v bun >/dev/null 2>&1; then
+    # Install configured packages globally now that bun is available
+    bun add --global $(printf "%s " {{- range .packages.darwin.bun }}"{{ . }}" {{- end }})
+  else
+    cat >&2 <<'EOF'
+Bun packages are configured but bun could not be installed automatically.
+
+Install bun manually (for example run: curl -fsSL https://bun.com/install | bash), then run:
+  chezmoi apply
+
+Configured bun packages:
+{{- range .packages.darwin.bun }}
+  - {{ . }}
+{{- end }}
+EOF
+  fi
+fi
+{{- end }}
+
 {{ end -}}

@@ -32,4 +32,51 @@ Configured AUR packages:
 EOF
   fi
 fi
+
+if [ {{ len .packages.arch.bun }} -gt 0 ]; then
+  if command -v bun >/dev/null 2>&1; then
+    bun add --global \
+{{- range .packages.arch.bun }}
+      {{ . | quote }} \
+{{- end }}
+  else
+    echo "bun not found; attempting to install bun..."
+    if curl -fsSL https://bun.com/install | bash; then
+      # Ensure BUN_INSTALL and PATH are set for this shell session (installer normally writes to shell profile)
+      export BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+      if command -v bun >/dev/null 2>&1; then
+        bun add --global \
+{{- range .packages.arch.bun }}
+          {{ . | quote }} \
+{{- end }}
+      else
+        cat >&2 <<'EOF'
+Bun was installed but the bun executable is not available in PATH in this session.
+
+You may need to restart your shell or add Bun to PATH:
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+
+Configured bun packages:
+{{- range .packages.arch.bun }}
+  - {{ . }}
+{{- end }}
+EOF
+      fi
+    else
+      cat >&2 <<'EOF'
+Failed to install Bun via the official installer.
+
+Please install Bun manually with:
+  curl -fsSL https://bun.com/install | bash
+
+Configured bun packages:
+{{- range .packages.arch.bun }}
+  - {{ . }}
+{{- end }}
+EOF
+    fi
+  fi
+fi
 {{ end -}}
