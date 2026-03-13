@@ -2,12 +2,19 @@
 # Login-shell environment
 
 export EDITOR="nvim"
+
+{{ if eq .chezmoi.os "darwin" }}
+export VISUAL="zed --wait"
+{{ end }}
+
 export BUN_INSTALL="$HOME/.bun"
 
 # Laravel Herd (macOS only)
+{{ if eq .chezmoi.os "darwin" }}
 export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
 export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
 export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
+{{ end }}
 
 # Deduplicated PATH handling
 typeset -U path PATH
@@ -16,10 +23,12 @@ path=(
   "$BUN_INSTALL/bin"
   "$HOME/.composer/vendor/bin"
   "$HOME/.local/bin"
+{{ if eq .chezmoi.os "darwin" }}
   "$HOME/Library/Application Support/Herd/bin"
   "/Users/Shared/DBngin/mariadb/10.11.6_arm/bin"
   "/Users/Shared/DBngin/postgresql/17.0/bin"
   "/Users/Shared/DBngin/redis/7.0.0/bin"
+{{ end }}
   $path
 )
 
