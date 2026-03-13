@@ -67,13 +67,15 @@ abbr cz "chezmoi"
 abbr cza "chezmoi apply"
 abbr cze "chezmoi edit"
 abbr czr "chezmoi re-add"
-abbr rm "trash"
 abbr vim "nvim"
 abbr lg "lazygit"
 abbr st "speedtest"
 abbr oc "opencode"
 abbr ts "tailscale"
 abbr ld "lazydocker"
+{{ if eq .chezmoi.os "darwin" }}
+abbr rm "trash"
+{{ end }}
 
 # Laravel
 abbr art "php artisan"
@@ -109,6 +111,7 @@ abbr stestl "./vendor/bin/sail test --parallel"
 # Keep aliases for things that should work in scripts/functions too.
 alias l='eza'
 alias ls='eza'
+alias la='eza -la'
 alias ll='eza -lah'
 
 # ---------- Navigation ----------
@@ -117,6 +120,7 @@ setopt AUTO_CD
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # ---------- Functions ----------
 
