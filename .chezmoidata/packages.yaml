@@ -65,9 +65,10 @@ packages:
       - "zsh-autosuggestions"
       - "zsh-syntax-highlighting"
     aur:
-      - "bun-bin"
-      - "opencode-bin"
-      - "zsh-theme-powerlevel10k"
+      - "zsh-theme-powerlevel10k-git"
+    bun:
+      - "opencode-ai"
+      - "@openai/codex"
 
 apps:
   darwin:
