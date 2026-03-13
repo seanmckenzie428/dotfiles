@@ -1,0 +1,26 @@
+# ~/.zprofile
+# Login-shell environment
+
+export EDITOR="nvim"
+export BUN_INSTALL="$HOME/.bun"
+
+# Laravel Herd (macOS only)
+export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
+export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
+
+# Deduplicated PATH handling
+typeset -U path PATH
+
+path=(
+  "$BUN_INSTALL/bin"
+  "$HOME/.composer/vendor/bin"
+  "$HOME/.local/bin"
+  "$HOME/Library/Application Support/Herd/bin"
+  "/Users/Shared/DBngin/mariadb/10.11.6_arm/bin"
+  "/Users/Shared/DBngin/postgresql/17.0/bin"
+  "/Users/Shared/DBngin/redis/7.0.0/bin"
+  $path
+)
+
+export PATH
