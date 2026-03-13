@@ -65,7 +65,7 @@ packages:
       - "zsh-autosuggestions"
       - "zsh-syntax-highlighting"
     aur:
-      - "zsh-theme-powerlevel10k-git"
+      - "zsh-theme-powerlevel10k"
     bun:
       - "opencode-ai"
       - "@openai/codex"
