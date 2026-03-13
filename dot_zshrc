@@ -81,6 +81,8 @@ abbr vim "nvim"
 abbr lg "lazygit"
 abbr st "speedtest"
 abbr oc "opencode"
+abbr ts "tailscale"
+abbr ld "lazydocker"
 
 # Laravel
 abbr art "php artisan"
