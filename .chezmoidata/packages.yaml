@@ -32,6 +32,7 @@ packages:
       - "mac-mouse-fix"
       - "monitorcontrol"
       - "phpstorm"
+      - "prismlauncher"
       - "raycast"
       - "rectangle"
       - "shottr"
