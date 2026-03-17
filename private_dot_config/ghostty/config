@@ -3,9 +3,9 @@
 # ==================================================
 # Settings
 # ==================================================
-command                           = shell:/opt/homebrew/bin/fish
+# command                           = shell:/opt/homebrew/bin/fish
 shell-integration-features        = ssh-env
-window-inherit-working-directory  = false
+window-inherit-working-directory  = true
 quit-after-last-window-closed     = true
 
 # ==================================================
@@ -13,3 +13,12 @@ quit-after-last-window-closed     = true
 # ==================================================
 keybind = global:cmd+backquote=toggle_quick_terminal
 
+# Automatic dark/light switching
+# theme = dark:Rose Pine,light:Rose Pine Dawn
+
+# Or set individual themes
+theme = Rose Pine
+# theme = Rose Pine Moon
+# theme = Rose Pine Dawn
+
+font-family = "JetBrainsMono Nerd Font Mono"
