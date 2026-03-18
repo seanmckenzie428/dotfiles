@@ -1,9 +1,11 @@
 # ~/.zprofile
 # Login-shell environment
 
-export EDITOR="nvim"
 {{ if eq .chezmoi.os "darwin" }}
+export EDITOR="zed --wait"
 export VISUAL="zed --wait"
+{{ else }}
+export EDITOR="nvim"
 {{ end }}
 
 export BUN_INSTALL="$HOME/.bun"
