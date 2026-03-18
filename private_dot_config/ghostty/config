@@ -14,10 +14,10 @@ macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 
 # Automatic dark/light switching
-theme = dark:Rose Pine,light:Rose Pine Dawn
+# theme = dark:Rose Pine,light:Rose Pine Dawn
 
 # Or set individual themes
-# theme = Rose Pine
+theme = Rose Pine
 # theme = Rose Pine Moon
 # theme = Rose Pine Dawn
 
