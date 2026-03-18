@@ -43,6 +43,7 @@ packages:
       - "yaak"
       - "zed"
       - "zoom"
+    bun:
 
   arch:
     pacman:
