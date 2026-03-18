@@ -9,9 +9,13 @@ quit-after-last-window-closed     = true
 
 background-opacity = 1.00
 background-blur = macos-glass-regular
-macos-titlebar-style = "tabs"
+macos-titlebar-style = "hidden"
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
+
+window-padding-x = 6
+window-padding-y = 10
+window-padding-balance = true
 
 # Automatic dark/light switching
 # theme = dark:Rose Pine,light:Rose Pine Dawn
