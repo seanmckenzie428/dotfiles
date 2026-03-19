@@ -322,6 +322,7 @@ app_rules = [
     {app_id = "com.apple.Music",workspace = 3},
     {app_id = "com.tinyspeck.slackmacgap",workspace = 2},
     {app_id = "com.apple.MobileSMS",workspace = 3},
+    {app_id = "com.nuebling.mac-mouse-fix",floating = true},
 ]
 
 # Modifier combinations that can be reused in key bindings
@@ -373,6 +374,9 @@ comb1 = "Alt + Shift"
 # the following commands *only* work when the scrolling layout is active
 # - scroll_strip = { delta = 0.5 }
 # - snap_strip / center_selection
+
+"Ctrl + H" = { prev_workspace = true }
+"Ctrl + L" = { next_workspace = true }
 
 "Alt + Z" = "toggle_space_activated"
 
