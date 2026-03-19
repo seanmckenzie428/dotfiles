@@ -7,7 +7,7 @@
 # - animation_duration: seconds per animation (>= 0.0, typical 0.15–0.35)
 # - animation_fps: frames per second (0.0 = display refresh rate). 60–120 recommended.
 #   ease_in_circ, ease_out_circ, ease_in_out_circ
-animate = true
+animate = false
 animation_duration = 5
 animation_fps = 60.0
 
@@ -319,18 +319,9 @@ workspace_names = []
 #
 # By default there are no app rules; add or uncomment rules below as needed.
 app_rules = [
-  {
-    app_id = "com.apple.Music",
-    workspace = 3
-  },
-  {
-    app_id = "com.tinyspeck.slackmacgap",
-    workspace = 2
-  },
-  {
-    app_id = "com.apple.MobileSMS",
-    workspace = 3
-  },
+    {app_id = "com.apple.Music",workspace = 3},
+    {app_id = "com.tinyspeck.slackmacgap",workspace = 2},
+    {app_id = "com.apple.MobileSMS",workspace = 3},
 ]
 
 # Modifier combinations that can be reused in key bindings
@@ -451,7 +442,7 @@ comb1 = "Alt + Shift"
 # this will show the mission control view shown in the readme
 # "Alt + Ctrl + M" = "show_mission_control_all"
 
-"Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
+# "Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
 
 "Alt + Shift + D" = "debug" # prints layout tree
 
