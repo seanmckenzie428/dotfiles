@@ -323,6 +323,7 @@ app_rules = [
     {app_id = "com.tinyspeck.slackmacgap",workspace = 2},
     {app_id = "com.apple.MobileSMS",workspace = 3},
     {app_id = "com.nuebling.mac-mouse-fix",floating = true},
+    {app_id = "cc.ffitch.shottr",floating = true},
 ]
 
 # Modifier combinations that can be reused in key bindings
