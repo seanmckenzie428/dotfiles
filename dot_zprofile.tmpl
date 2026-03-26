@@ -4,6 +4,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 export EDITOR="zed --wait"
 export VISUAL="zed --wait"
+export SSH_AUTH_SOCK=/Users/seanm/.bitwarden-ssh-agent.sock
 {{ else }}
 export EDITOR="nvim"
 {{ end }}
