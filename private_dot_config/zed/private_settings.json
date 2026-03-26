@@ -80,7 +80,7 @@
     "shell": "system",
   },
   "restore_on_startup": "launchpad",
-  "redact_private_values": true,
+  "redact_private_values": false,
   "when_closing_with_no_tabs": "keep_window_open",
   "on_last_window_closed": "quit_app",
   "autosave": "on_focus_change",
