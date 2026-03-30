@@ -1,5 +1,16 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+set -euo pipefail
+
+if ! command -v mise >/dev/null 2>&1; then
+  curl https://mise.run | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+mise install \
+{{- range .packages.mise }}
+  {{ . | quote }} \
+{{- end }}
 
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
