@@ -1,5 +1,4 @@
 brew "chezmoi"
-brew "docker"
 brew "eza"
 brew "fzf"
 brew "gh"
@@ -17,6 +16,13 @@ brew "zsh-syntax-highlighting"
 brew "anomalyco/tap/opencode"
 brew "oven-sh/bun/bun"
 brew "teamookla/speedtest/speedtest"
+
+# Linux specific packages
+{{ if eq .chezmoi.os "linux" }}
+brew "docker"
+{{ end }}
+
+# MacOS specific packages
 {{ if eq .chezmoi.os "darwin" }}
 brew "felixkratz/formulae/borders"
 brew "acsandmann/tap/rift"
