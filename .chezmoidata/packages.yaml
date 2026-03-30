@@ -50,29 +50,31 @@ packages:
   arch:
     pacman:
       - "base-devel"
-      - "eza"
-      - "ffmpeg"
       - "fish"
-      - "fzf"
       - "git"
-      - "github-cli"
       - "go"
-      - "imagemagick"
-      - "lazydocker"
-      - "lazygit"
-      - "neovim"
-      - "ripgrep"
       - "tailscale"
-      - "yazi"
-      - "zoxide"
       - "zsh"
       - "zsh-autosuggestions"
       - "zsh-syntax-highlighting"
     aur:
       - "zsh-theme-powerlevel10k"
     bun:
-      - "opencode-ai"
       - "@openai/codex"
+
+  mise:
+    - "bun"
+    - "eza"
+    - "fzf"
+    - "gh"
+    - "neovim"
+    - "lazydocker"
+    - "lazygit"
+    - "neovim"
+    - "opencode"
+    - "ripgrep"
+    - "yazi"
+    - "zoxide"
 
 apps:
   darwin:
