@@ -18,6 +18,12 @@ export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
 {{ end }}
 
+{{ if eq .chezmoi.os "linux" }}
+echo >> $HOME/.zshrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"' >> $HOME/.zshrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+{{ end }}
+
 # Deduplicated PATH handling
 typeset -U path PATH
 
