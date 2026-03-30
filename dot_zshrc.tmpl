@@ -191,4 +191,6 @@ export NVM_DIR="$HOME/.nvm"
 {{ if eq .chezmoi.os "linux" }}
 # bun completions
 [ -s "/home/seanm/.bun/_bun" ] && source "/home/seanm/.bun/_bun"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{ end }}
