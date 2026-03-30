@@ -11,6 +11,14 @@ export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 # ---------- Helpers ----------
 setopt AUTO_CD
 
+{{ if eq .chezmoi.os "darwin" }}
+export EDITOR="zed --wait"
+export VISUAL="zed --wait"
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
+{{ else }}
+export EDITOR="nvim"
+{{ end }}
+
 # ---------- Prompt ----------
 source "${HOMEBREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
 

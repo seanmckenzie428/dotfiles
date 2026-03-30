@@ -1,14 +1,6 @@
 # ~/.zprofile
 # Login-shell environment
 
-{{ if eq .chezmoi.os "darwin" }}
-export EDITOR="zed --wait"
-export VISUAL="zed --wait"
-export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
-{{ else }}
-export EDITOR="nvim"
-{{ end }}
-
 export BUN_INSTALL="$HOME/.bun"
 
 {{ if eq .chezmoi.os "darwin" }}
