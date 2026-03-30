@@ -73,7 +73,7 @@ hot_reload = true
 # defaults to "traditional" if omitted This is the default layout mode if there is nothing else configured
 # in the `workspace_rules` section below.
 # You can set different layouts per workspace using `workspace_rules`.
-mode = "traditional"
+mode = "bsp"
 
 # these settings only apply when layout mode == "master_stack"
 [settings.layout.master_stack]
@@ -84,12 +84,12 @@ master_count = 1
 # Which side the master area occupies (left | right | top | bottom)
 master_side = "left"
 # Where new windows go when the master area is already full (master | stack | focused)
-new_window_placement = "master"
+new_window_placement = "stack"
 
 # these settings only apply when layout mode == "scrolling"
 [settings.layout.scrolling]
 # width of the active column (0..1 of screen width)
-column_width_ratio = 0.7
+column_width_ratio = 0.5
 # min_column_width_ratio / max_column_width_ratio: clamp bounds used by resize commands
 min_column_width_ratio = 0.3
 max_column_width_ratio = 0.9
