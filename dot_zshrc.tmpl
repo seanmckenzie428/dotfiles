@@ -12,11 +12,7 @@ export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 setopt AUTO_CD
 
 # ---------- Prompt ----------
-{{ if eq .chezmoi.os "darwin" }}
 source "${HOMEBREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
-{{ else if eq .chezmoi.os "linux" }}
-source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
-{{ end }}
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
@@ -159,18 +155,8 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # ---------- Plugins ----------
-
-{{ if eq .chezmoi.os "darwin" }}
 source "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-{{ else if eq .chezmoi.os "linux" }}
-source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-{{ end }}
-
-{{ if eq .chezmoi.os "darwin" }}
 source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-{{ else if eq .chezmoi.os "linux" }}
-source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-{{ end }}
 
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
