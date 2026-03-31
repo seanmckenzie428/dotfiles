@@ -17,13 +17,13 @@ brew "anomalyco/tap/opencode"
 brew "oven-sh/bun/bun"
 brew "teamookla/speedtest/speedtest"
 
-# Linux specific packages
 {{ if eq .chezmoi.os "linux" }}
+# Linux specific packages
 brew "docker"
 {{ end }}
 
-# MacOS specific packages
 {{ if eq .chezmoi.os "darwin" }}
+# MacOS specific packages
 brew "felixkratz/formulae/borders"
 brew "acsandmann/tap/rift"
 cask "adguard"
@@ -39,6 +39,7 @@ cask "ghostty"
 cask "herd"
 cask "inkscape"
 cask "mac-mouse-fix"
+cask "malwarebytes"
 cask "monitorcontrol"
 cask "ngrok"
 cask "obsidian"
