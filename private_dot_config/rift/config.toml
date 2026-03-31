@@ -106,7 +106,7 @@ focus_navigation_style = "niri"
 
 [settings.layout.scrolling.gestures]
 # Enable horizontal scroll gestures to switch columns
-enabled = false
+enabled = true
 # Invert horizontal direction (swap left/right)
 invert_horizontal = false
 # Number of fingers required for gesture
@@ -137,14 +137,14 @@ default_orientation = "perpendicular"
 #   Use the display's UUID as the key (for example, from system profiler or via rift CLI).
 
 [settings.layout.gaps.outer]
-top = 4
-left = 8
-bottom = 8
-right = 8
+top = 0
+left = 0
+bottom = 0
+right = 0
 
 [settings.layout.gaps.inner]
-horizontal = 18
-vertical = 18
+horizontal = 0
+vertical = 0
 
 # Example per-display overrides:
 # Replace the quoted key with your display's UUID. Only specify values you want to override.
