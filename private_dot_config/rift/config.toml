@@ -73,7 +73,7 @@ hot_reload = true
 # defaults to "traditional" if omitted This is the default layout mode if there is nothing else configured
 # in the `workspace_rules` section below.
 # You can set different layouts per workspace using `workspace_rules`.
-mode = "bsp"
+mode = "traditional"
 
 # these settings only apply when layout mode == "master_stack"
 [settings.layout.master_stack]
