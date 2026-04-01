@@ -9,7 +9,7 @@ quit-after-last-window-closed     = true
 
 background-opacity = 1.00
 background-blur = macos-glass-regular
-macos-titlebar-style = "hidden"
+macos-titlebar-style = "transparent"
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 focus-follows-mouse = true
