@@ -9,7 +9,7 @@ quit-after-last-window-closed     = true
 
 background-opacity = 1.00
 background-blur = macos-glass-regular
-macos-titlebar-style = "transparent"
+macos-titlebar-style = "hidden"
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 focus-follows-mouse = true
@@ -19,10 +19,10 @@ window-padding-y = 10
 window-padding-balance = true
 
 # Automatic dark/light switching
-# theme = dark:Rose Pine,light:Rose Pine Dawn
+theme = dark:Rose Pine,light:Rose Pine Dawn
 
 # Or set individual themes
-theme = Rose Pine
+# theme = Rose Pine
 # theme = Rose Pine Moon
 # theme = Rose Pine Dawn
 

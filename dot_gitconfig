@@ -1,12 +1,5 @@
 [user]
 	name = Sean McKenzie
 	email = 70048908+seanmckenzie428@users.noreply.github.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJETAj+AIgl2rf44Vh7+A+iDXa/a+rp3uAhXQO0cJz3M
 [core]
 	autocrlf = input
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
-[gpg "ssh"]
-	allowedSignersFile = /Users/seanm/.ssh/allowed_signers
