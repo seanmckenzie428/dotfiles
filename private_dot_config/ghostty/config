@@ -28,7 +28,7 @@ theme = dark:Rose Pine,light:Rose Pine Dawn
 
 font-family = "JetBrainsMono Nerd Font Mono"
 
-macos-icon = blueprint
+macos-icon = custom
 
 # ==================================================
 # Keybindings
