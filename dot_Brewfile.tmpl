@@ -17,11 +17,6 @@ brew "anomalyco/tap/opencode"
 brew "oven-sh/bun/bun"
 brew "teamookla/speedtest/speedtest"
 
-{{ if eq .chezmoi.os "linux" }}
-# Linux specific packages
-brew "docker"
-{{ end }}
-
 {{ if eq .chezmoi.os "darwin" }}
 # MacOS specific packages
 brew "felixkratz/formulae/borders"
