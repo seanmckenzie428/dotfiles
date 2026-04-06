@@ -8,6 +8,11 @@ fi
 # ---------- Homebrew ----------
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
+# ---------- Prompt ----------
+source "${HOMEBREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
+
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
 # ---------- Helpers ----------
 setopt AUTO_CD
 
@@ -18,11 +23,6 @@ export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwa
 {{ else }}
 export EDITOR="nvim"
 {{ end }}
-
-# ---------- Prompt ----------
-source "${HOMEBREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
-
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # ---------- Fish-style abbreviations ----------
 
