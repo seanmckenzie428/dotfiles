@@ -1,6 +1,9 @@
-romkatv/powerlevel10k
-olets/zsh-abbr
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
+# set up Zsh completions with plugins
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+
 zsh-users/zsh-autosuggestions
-olets/zsh-autosuggestions-abbreviations-strategy
+
+olets/zsh-abbr kind:defer
+olets/zsh-autosuggestions-abbreviations-strategy kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
