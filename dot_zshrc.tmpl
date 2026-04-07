@@ -3,6 +3,16 @@
 # ---------- Homebrew ----------
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
+
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+
 # ---------- Completion ----------
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
@@ -72,13 +82,6 @@ source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
 # initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 antidote load
 
-if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
-fi
-
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-fi
 
 {{ if eq .chezmoi.os "linux" }}
 # bun completions
