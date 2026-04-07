@@ -4,7 +4,9 @@
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
 # ---------- Completion ----------
-ez-compinit
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 
 # ---------- Helpers ----------
 setopt AUTO_CD
@@ -23,8 +25,6 @@ alias ls='eza'
 alias la='eza -a'
 alias ll='eza -lah'
 alias t='tmux a || tmux new'
-
-ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 
 # ---------- Navigation ----------
 
