@@ -4,16 +4,6 @@
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
 
-if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
-fi
-
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-fi
-
-ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
-
 # ---------- Helpers ----------
 setopt AUTO_CD
 
@@ -86,7 +76,17 @@ antidote load
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{ end }}
 
-source "$HOME/.completion-for-pnpm.zsh"
+source "$HOME/.completion-for-pnpm.zsh
+
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )"
 
 # ---------- Prompt ----------
 eval "$(starship init zsh)"
