@@ -66,6 +66,12 @@ bindkey '^[[B' down-line-or-search
 eval "$(mise activate zsh)"
 
 # ---------- Plugins ----------
+# source antidote
+source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
+
+# initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+antidote load
+
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
@@ -82,12 +88,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{ end }}
 
 source "$HOME/.completion-for-pnpm.zsh"
-
-# source antidote
-source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
-
-# initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
-antidote load
 
 # ---------- Prompt ----------
 eval "$(starship init zsh)"
