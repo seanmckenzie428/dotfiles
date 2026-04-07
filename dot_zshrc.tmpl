@@ -3,17 +3,12 @@
 # ---------- Homebrew ----------
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
-
 # ---------- Helpers ----------
-setopt AUTO_CD
-
 {{ if eq .chezmoi.os "darwin" }}
-export EDITOR="zed --wait"
-export VISUAL="zed --wait"
 export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
-{{ else }}
-export EDITOR="nvim"
 {{ end }}
+
+export EDITOR="nvim"
 
 # ---------- Aliases ----------
 alias l='eza'
