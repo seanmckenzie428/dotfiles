@@ -1,5 +1,5 @@
 romkatv/powerlevel10k
-olets/zsh-abbra
+olets/zsh-abbr
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
