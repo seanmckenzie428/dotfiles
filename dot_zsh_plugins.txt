@@ -1,0 +1,6 @@
+romkatv/powerlevel10k
+olets/zsh-abbra
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+olets/zsh-autosuggestions-abbreviations-strategy
