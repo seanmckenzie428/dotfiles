@@ -105,5 +105,7 @@ source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
 # initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 antidote load
 
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
+
 eval "$(mise activate zsh)"
 source "$HOME/.completion-for-pnpm.zsh"
