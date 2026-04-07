@@ -3,6 +3,7 @@ mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
 zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
 
 olets/zsh-abbr kind:defer
 olets/zsh-autosuggestions-abbreviations-strategy kind:defer
