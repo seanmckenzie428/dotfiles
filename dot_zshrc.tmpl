@@ -185,5 +185,13 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{ end }}
 
+# now, simply add these two lines in your ~/.zshrc
+
+# source antidote
+source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+antidote load
+
 eval "$(mise activate zsh)"
 source "$HOME/.completion-for-pnpm.zsh"
