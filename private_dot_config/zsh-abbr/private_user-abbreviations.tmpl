@@ -33,3 +33,7 @@ abbr "ts"="tailscale"
 abbr "vite"="./vendor/bin/sail npm run dev"
 abbr "work"="php artisan queue:work"
 abbr "wts"="wt switch"
+
+{{ if eq .chezmoi.os "darwin" }}
+abbr "rm"="trash"
+{{ end }}
