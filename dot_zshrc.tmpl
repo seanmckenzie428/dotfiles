@@ -56,6 +56,33 @@ bindkey '^[[B' down-line-or-search
 # ---------- MISE ----------
 eval "$(mise activate zsh)"
 
+# ---------- HERD ----------
+{{ if eq .chezmoi.os "darwin" }}
+# Laravel Herd (macOS only)
+export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
+export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
+{{ end }}
+
+# ---------- PATH ----------
+
+# Deduplicated PATH handling
+typeset -U path PATH
+
+path=(
+  "$HOME/.composer/vendor/bin"
+  "$HOME/.local/bin"
+{{ if eq .chezmoi.os "darwin" }}
+  "$HOME/Library/Application Support/Herd/bin"
+  "/Users/Shared/DBngin/mariadb/10.11.6_arm/bin"
+  "/Users/Shared/DBngin/postgresql/17.0/bin"
+  "/Users/Shared/DBngin/redis/7.0.0/bin"
+{{ end }}
+  $path
+)
+
+export PATH
+
 # ---------- Plugins ----------
 # source antidote
 source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
@@ -64,9 +91,6 @@ source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
 antidote load
 
 {{ if eq .chezmoi.os "linux" }}
-# bun completions
-[ -s "/home/seanm/.bun/_bun" ] && source "/home/seanm/.bun/_bun"
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{ end }}
 
