@@ -106,5 +106,7 @@ fi
 
 ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 
+export OPENROUTER_API_KEY="(bitwardenSecrets "6dbc6670-1a36-49e2-afcc-b42f00e04192" .bwToken).value"
+
 # ---------- Prompt ----------
 eval "$(starship init zsh)"
