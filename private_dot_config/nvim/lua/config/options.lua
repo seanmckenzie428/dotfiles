@@ -13,7 +13,7 @@ local function sync_background_with_macos()
   local bg = result:match("true") and "dark" or "light"
   if vim.o.background ~= bg then
     vim.opt.background = bg
-    vim.cmd.colorscheme("rose-pine")
+    pcall(vim.cmd.colorscheme, "rose-pine")
   end
 end
 
