@@ -7,9 +7,6 @@ shell-integration-features        = ssh-env
 window-inherit-working-directory  = true
 quit-after-last-window-closed     = true
 
-background-opacity = 1.00
-background-blur = macos-glass-regular
-macos-titlebar-style = "hidden"
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 focus-follows-mouse = true
