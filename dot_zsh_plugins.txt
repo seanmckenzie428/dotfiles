@@ -8,5 +8,10 @@ olets/zsh-abbr kind:defer
 olets/zsh-autosuggestions-abbreviations-strategy kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
+# frameworks like oh-my-zsh are supported
+getantidote/use-omz        # handle OMZ dependencies
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library
+ohmyzsh/ohmyzsh path:plugins/tmux  # load OMZ plugins
+
 # run towards the BOTTOM of your .zsh_plugins.txt after fpath is populated
 mattmc3/zephyr path:plugins/completion
