@@ -4,6 +4,10 @@
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
 # ---------- Helpers ----------
+{{ if eq .chezmoi.os "linux" }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+{{ end }}
+
 {{ if eq .chezmoi.os "darwin" }}
 export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
 {{ end }}
@@ -94,10 +98,6 @@ source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
 
 # initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 antidote load
-
-{{ if eq .chezmoi.os "linux" }}
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-{{ end }}
 
 source "$HOME/.completion-for-pnpm.zsh"
 
