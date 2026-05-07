@@ -7,11 +7,51 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "diff_view_style": "split",
-  "disable_ai": true,
+  "cli_default_open_behavior": "existing_window",
+  "language_models": {
+    "opencode": {
+      "show_zen_models": false
+    }
+  },
+  "go_to_definition_fallback": "find_all_references",
+  "semantic_tokens": "combined",
+  "buffer_font_size": 14.0,
+  "ssh_connections": [
+    {
+      "host": "omakase",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/sean/homelab"],
+        },
+      ],
+    },
+  ],
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "proxy": "",
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "project_panel": {
+    "git_status_indicator": true,
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "diff_view_style": "unified",
+  "disable_ai": false,
   "audio": {
     "experimental.auto_microphone_volume": true,
-    "experimental.rodio_audio": true,
   },
   "git": {
     "inline_blame": {
@@ -42,18 +82,11 @@
   },
   "ui_font_family": ".ZedSans",
   "agent_buffer_font_size": 14.0,
-  "buffer_line_height": {
-    "custom": 1.5,
-  },
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "agent_servers": {
-    "cursor": {
+    "opencode": {
       "type": "registry",
     },
     "codex-acp": {
-      "type": "registry",
-    },
-    "opencode": {
       "type": "registry",
     },
   },
@@ -61,12 +94,26 @@
     "mute_on_join": true,
   },
   "agent": {
-    "use_modifier_to_send": true,
-    "play_sound_when_agent_done": true,
+    "tool_permissions": {
+      "default": "allow",
+      "tools": {}
+    },
+    "show_turn_stats": true,
+    "thinking_display": "always_collapsed",
+    "expand_edit_card": false,
+    "expand_terminal_card": false,
+    "flexible": true,
+    "sidebar_side": "left",
+    "single_file_review": true,
+    "notify_when_agent_waiting": "all_screens",
+    "new_thread_location": "new_worktree",
+    "dock": "right",
+    "use_modifier_to_send": false,
+    "play_sound_when_agent_done": "always",
     "enable_feedback": false,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "provider": "opencode",
+      "model": "go/kimi-k2.6",
       "enable_thinking": false,
     },
     "favorite_models": [],
@@ -80,14 +127,14 @@
     "font_size": 13.0,
     "shell": "system",
   },
-  "restore_on_startup": "launchpad",
+  "restore_on_startup": "last_session",
   "redact_private_values": false,
   "when_closing_with_no_tabs": "keep_window_open",
   "on_last_window_closed": "quit_app",
   "autosave": "on_focus_change",
   "icon_theme": {
-    "mode": "dark",
-    "light": "Catppuccin Macchiato",
+    "mode": "system",
+    "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
   },
   "telemetry": {
@@ -97,10 +144,46 @@
   "vim_mode": true,
   "base_keymap": "JetBrains",
   "ui_font_size": 16.0,
-  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
-    "light": "Rosé Pine Dawn",
-    "dark": "Rosé Pine"
+    "light": "JetBrains Light",
+    "dark": "JetBrains Dark",
+  },
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "!phptools", "..."],
+    },
+  },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "php": "html",
+          "blade": "html",
+        },
+        "experimental": {
+          "classRegex": [
+            "class=\"([^\"]*)\"",
+            "class='([^']*)'",
+            "class=\\\"([^\\\"]*)\\\"",
+            "@class\\(\\[([^\\]]*)\\]\\)",
+            "\\.className\\s*[+]?=\\s*['\"]([^'\"]*)['\"]",
+            "\\.setAttributeNS\\(.*,\\s*['\"]class['\"],\\s*['\"]([^'\"]*)['\"]",
+            "\\.setAttribute\\(['\"]class['\"],\\s*['\"]([^'\"]*)['\"]",
+            "\\.classList\\.add\\(['\"]([^'\"]*)['\"]",
+            "\\.classList\\.remove\\(['\"]([^'\"]*)['\"]",
+            "\\.classList\\.toggle\\(['\"]([^'\"]*)['\"]",
+            "\\.classList\\.contains\\(['\"]([^'\"]*)['\"]",
+            "\\.classList\\.replace\\(\\s*['\"]([^'\"]*)['\"]",
+            "\\.classList\\.replace\\([^,)]+,\\s*['\"]([^'\"]*)['\"]",
+          ],
+        },
+      },
+    },
+    "eslint": {
+      "settings": {
+        "onIgnoredFiles": "off",
+      },
+    },
   },
 }

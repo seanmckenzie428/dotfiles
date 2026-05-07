@@ -20,39 +20,46 @@
   },
   {
     "context": "Workspace",
-    "bindings": {
-      "cmd-k": null
-    }
+    "unbind": {
+      "cmd-k": "git_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Picker > Editor",
+    "unbind": {
+      "ctrl-h": "editor::Backspace",
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-h": ["vim::Literal", ["ctrl-h", "\b"]],
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-h": "editor::Backspace",
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-l": ["vim::Literal", ["ctrl-l", "\f"]],
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-l": "editor::ScrollCursorCenter",
+    },
   },
   {
     "bindings": {
-      "cmd-o": "file_finder::Toggle"
-    }
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
-  {
-    "bindings": {
-      "cmd-shift-o": "workspace::Open"
-    }
-  },
-  {
-    "bindings": {
-      "cmd-shift-o": "workspace::Open"
-    }
-  },
-  {
-    "context": "(Workspace || Editor)",
-    "bindings": {
-      "f12": "terminal_panel::Toggle"
-    }
-  },
-  {
-    "bindings": {
-      "cmd-0": "git_panel::Toggle"
-    }
-  },
-  {
-    "bindings": {
-      "cmd-2": "agent::Toggle"
-    }
-  }
 ]

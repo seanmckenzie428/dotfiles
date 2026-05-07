@@ -13,7 +13,8 @@ focus-follows-mouse = true
 window-padding-balance = true
 
 # Automatic dark/light switching
-theme = dark:Rose Pine,light:Rose Pine Dawn
+# theme = dark:Rose Pine,light:Rose Pine Dawn
+theme = light:jb-light,dark:jb-dark
 
 # Or set individual themes
 # theme = Rose Pine
