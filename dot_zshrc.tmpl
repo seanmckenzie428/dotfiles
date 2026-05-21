@@ -73,6 +73,11 @@ export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
 {{ end }}
 
+# ---------- PNPM ----------
+{{ if eq .chezmoi.os "darwin" }}
+export PNPM_HOME="/Users/seanm/Library/pnpm"
+{{ end }}
+
 # ---------- PATH ----------
 
 # Deduplicated PATH handling
@@ -86,6 +91,7 @@ path=(
   "/Users/Shared/DBngin/mariadb/10.11.6_arm/bin"
   "/Users/Shared/DBngin/postgresql/17.0/bin"
   "/Users/Shared/DBngin/redis/7.0.0/bin"
+  "/Users/seanm/Library/pnpm"
 {{ end }}
   $path
 )
