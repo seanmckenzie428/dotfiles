@@ -62,4 +62,71 @@
       "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
+  {
+    "bindings": {
+      "cmd-2": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "cmd-2": "workspace::CloseActiveDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-3": [
+        "workspace::ActivatePane",
+        2
+      ]
+    }
+  },
+  {
+    "context": "Welcome",
+    "unbind": {
+      "cmd-3": [
+        "welcome::OpenRecentProject",
+        2
+      ]
+    }
+  },
+  {
+    "context": "RunModal",
+    "unbind": {
+      "cmd-3": "new_process_modal::ActivateAttachTab"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-3": "agent::ToggleFocus"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "cmd-3": "workspace::CloseActiveDock"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-4": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
+  {
+    "bindings": {
+      "f12": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-o": "file_finder::Toggle"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-o": "workspace::Open"
+    }
+  }
 ]

@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "cli_default_open_behavior": "existing_window",
+  "cli_default_open_behavior": "new_window",
   "language_models": {
     "opencode": {
       "show_zen_models": false
@@ -22,12 +22,26 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/sean/homelab"],
-        },
-      ],
+          "paths": [
+            "/home/sean/homelab"
+          ]
+        }
+      ]
     },
+    {
+      "host": "bmo",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/bmo/.openclaw"
+          ]
+        }
+      ]
+    }
   ],
   "edit_predictions": {
+    "allow_data_collection": "no",
     "provider": "copilot",
   },
   "proxy": "",
@@ -46,9 +60,10 @@
     "dock": "left",
   },
   "git_panel": {
+    "tree_view": true,
     "dock": "left",
   },
-  "diff_view_style": "unified",
+  "diff_view_style": "split",
   "disable_ai": false,
   "audio": {
     "experimental.auto_microphone_volume": true,
@@ -83,10 +98,16 @@
   "ui_font_family": ".ZedSans",
   "agent_buffer_font_size": 14.0,
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
     "opencode": {
       "type": "registry",
     },
     "codex-acp": {
+      "default_config_options": {
+        "mode": "full-access"
+      },
       "type": "registry",
     },
   },
@@ -94,6 +115,38 @@
     "mute_on_join": true,
   },
   "agent": {
+    "default_profile": "write",
+    "profiles": {
+      "research": {
+        "default_model": {
+          "provider": "openai-subscribed",
+          "model": "gpt-5.5",
+          "enable_thinking": true,
+          "effort": "medium"
+        },
+        "name": "Research",
+        "tools": {
+          "edit_file": true,
+          "update_plan": true,
+          "terminal": false,
+          "spawn_agent": true,
+          "read_file": true,
+          "open": true,
+          "now": true,
+          "list_directory": true,
+          "grep": true,
+          "go_to_definition": true,
+          "get_code_actions": true,
+          "find_references": true,
+          "find_path": true,
+          "fetch": true,
+          "diagnostics": true,
+          "copy_path": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
     "tool_permissions": {
       "default": "allow",
       "tools": {}
@@ -102,21 +155,29 @@
     "thinking_display": "always_collapsed",
     "expand_edit_card": false,
     "expand_terminal_card": false,
-    "flexible": true,
-    "sidebar_side": "left",
+    "flexible": false,
+    "sidebar_side": "right",
     "single_file_review": true,
-    "notify_when_agent_waiting": "all_screens",
+    "notify_when_agent_waiting": "primary_screen",
     "new_thread_location": "new_worktree",
-    "dock": "right",
+    "dock": "left",
     "use_modifier_to_send": false,
     "play_sound_when_agent_done": "always",
     "enable_feedback": false,
     "default_model": {
-      "provider": "opencode",
-      "model": "go/kimi-k2.6",
-      "enable_thinking": false,
+      "effort": "xhigh",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
     },
-    "favorite_models": [],
+    "favorite_models": [
+      {
+        "provider": "openai-subscribed",
+        "model": "gpt-5.5",
+        "enable_thinking": true,
+        "effort": "xhigh"
+      }
+    ],
     "model_parameters": [],
   },
   "terminal": {
@@ -129,7 +190,7 @@
   },
   "restore_on_startup": "last_session",
   "redact_private_values": false,
-  "when_closing_with_no_tabs": "keep_window_open",
+  "when_closing_with_no_tabs": "close_window",
   "on_last_window_closed": "quit_app",
   "autosave": "on_focus_change",
   "icon_theme": {
@@ -145,7 +206,7 @@
   "base_keymap": "JetBrains",
   "ui_font_size": 16.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
