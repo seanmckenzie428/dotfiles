@@ -7,6 +7,7 @@ zdharma-continuum/fast-syntax-highlighting kind:defer
 
 # run towards the BOTTOM of your .zsh_plugins.txt after fpath is populated
 using:mattmc3/zephyr path:plugins
+colors
 completion
 compstyle
 environment
