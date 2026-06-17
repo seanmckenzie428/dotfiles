@@ -1,6 +1,3 @@
-# set up Zsh completions with plugins
-zsh-users/zsh-completions kind:fpath path:src
-
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
@@ -9,4 +6,9 @@ olets/zsh-autosuggestions-abbreviations-strategy kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 # run towards the BOTTOM of your .zsh_plugins.txt after fpath is populated
-mattmc3/zephyr path:plugins/completion
+using:mattmc3/zephyr path:plugins
+completion
+compstyle
+environment
+homebrew
+history
