@@ -19,6 +19,8 @@ export OMO_SEND_ANONYMOUS_TELEMETRY=0
 export OMO_DISABLE_POSTHOG=1
 export SBX_NO_TELEMETRY=1
 
+fpath=(~/.zsh/completions $fpath)
+
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 # ---------- Aliases ----------
