@@ -13,4 +13,3 @@ compstyle
 environment
 homebrew
 history
-macos
