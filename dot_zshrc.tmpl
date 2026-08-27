@@ -19,6 +19,8 @@ export OMO_SEND_ANONYMOUS_TELEMETRY=0
 export OMO_DISABLE_POSTHOG=1
 export SBX_NO_TELEMETRY=1
 
+export PQINA_NPM_TOKEN="{{ (bitwardenSecrets "82cd640f-1e7a-4f69-a9ee-b4b3013cd2c4" .bwToken).value }}"
+
 fpath=(~/.zsh/completions $fpath)
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
