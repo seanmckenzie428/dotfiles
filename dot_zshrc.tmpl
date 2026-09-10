@@ -26,6 +26,11 @@ fpath=(~/.zsh/completions $fpath)
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 # ---------- Aliases ----------
+alias l="eza"
+alias ls="eza"
+alias la="eza -a"
+alias ll="eza -lah"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
