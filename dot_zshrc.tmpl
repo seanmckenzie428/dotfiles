@@ -26,18 +26,12 @@ fpath=(~/.zsh/completions $fpath)
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 # ---------- Aliases ----------
-alias l='ls'
-alias ls='ls'
-alias la='ls -a'
-alias ll='ls -lah'
-
-# ---------- Navigation ----------
-
-setopt AUTO_CD
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# ---------- Navigation ----------
+setopt AUTO_CD
 
 # ---------- Functions ----------
 
