@@ -12,7 +12,6 @@ fi
 
 {{ if eq .chezmoi.os "linux" }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-export PADDLE_SANDBOX_API_KEY="{{ (bitwardenSecrets "236e77e0-ac29-41d2-9c68-b4e30028ba99" .bwToken).value }}"
 {{ end }}
 
 {{ if eq .chezmoi.os "darwin" }}
